@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- PYSCRIPT CDN -->
+     <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css"/>
+     <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+     <!-- BOOTSTRAP CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <!-- WHIMSICAL GOOGLE FONTS -->
+     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+     <title>Meet the Creator</title>
+     <style>
+          body {
+               margin: 0;
+               padding: 2rem;
+               padding-top: 100px;
+               box-sizing: border-box;
+          }
+
+          a {
+               color: #7952B5;
+               text-decoration: none;
+          }
+
+          a:hover {
+               color: #A56DE2;
+               text-decoration: underline;
+          }
+
+          img {
+               max-width: 100%;
+               height: auto;
+               border-radius: 15px;
+          }
+
+          hr {
+               border: 1px solid #b388ff;
+               opacity: 0.7;
+          }
+
+          p {
+               font-family: 'Fredoka', sans-serif;
+               font-size: 1.1rem;
+               line-height: 1.7;
+               color: #302442;
+          }
+
+          h1, h2, h3, h4, h5 {
+               font-family: 'Cinzel Decorative', cursive;
+               font-weight: 700;
+               text-align: center;
+               margin-bottom: 0.5rem;
+               background: radial-gradient(circle at 20% 20%, #b388ff 0%, #9575cd 40%, #7986cb 100%);
+               -webkit-background-clip: text;
+               -webkit-text-fill-color: transparent;
+          }
+
+          .navbar {
+               background: linear-gradient(135deg, #4c345e, #7952b5, #302442);
+               padding: 1rem 2rem;
+               border-radius: 15px;
+               position: fixed;
+               top: 15px;
+               left: 2%;
+               width: 96%;
+               z-index: 1000;
+               box-sizing: border-box;
+          }
+
+          .navbar-brand {
+               font-family: 'Cinzel Decorative', cursive;
+               font-size: 20px;
+               font-weight: 700;
+               color: white !important;
+          }
+
+          .navbar-nav {
+               display: flex;
+               flex-direction: row;
+               gap: 1.5rem;
+          }
+
+          .nav-link {
+               font-family: 'Fredoka', sans-serif;
+               color: #f3e5f5 !important;
+               font-size: 15px;
+               text-decoration: none;
+               transition: 0.3s;
+          }
+
+          .nav-link:hover {
+               color: #d1c4e9 !important;
+               text-decoration: underline;
+          }
+
+          body {
+               padding: 140px 1.5rem 2rem;
+          }
+
+          @media (max-width: 768px) {
+               body {
+                    padding-top: 190px;
+               }
+
+               .navbar .container-fluid {
+                    flex-direction: column;
+                    gap: 10px;
+               }
+
+               .navbar-nav {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 5px 15px;
+               }
+
+               .navbar-brand {
+                    font-size: 17px;
+               }
+
+               .nav-link {
+                    font-size: 13px;
+               }
+          }
+
+          #quote {
+               font-family: monospace;
+               text-align: center;
+          }
+
+          #stars {
+               text-align: center;
+          }
+
+          #aboutMes {
+               text-align: left;
+          }
+
+     </style>
+</head>
+<body>
+
+     <!-- NAVBAR -->
+     <nav class="navbar">
+          <div class="container-fluid">
+               <a class="navbar-brand" href="./index.html">Student Showcase</a>
+
+               <ul class="navbar-nav">
+                    <li class="nav-item">
+                         <a class="nav-link" href="./index.html">Club Members</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                         <a class="nav-link" href="./bcmems.html">Join Club</a>
+                    </li>
+
+                    <li class="nav-item">
+                         <a class="nav-link" href="./element.html">Element Finder</a>
+                    </li>
+
+                    <li class="nav-item">
+                         <a class="nav-link" href="./meetcreator.html">Meet the Creator</a>
+                    </li>
+               </ul>
+
+          </div>
+     </nav>
+
+<!-- ABOUT ME -->
+<h3>Meet the Creator</h1>
+<p id="quote">writer (n.) a magical creature that turns tea into other worlds</p>
+<p>Hi! I’m <b>Mikela Santiago</b>. I love reading books and writing stories. And when I’m not lost in a book or my own stories, you’ll probably find me playing video games or listening to music. Or maybe I'm in a bookstore!</p>
+<p id="stars">☆☆☆☆☆☆☆☆</p>
+<h5 id="aboutMes">About Me</h5>
+     <ul>
+          <li><b>Zodiac:</b> Scorpio</li>
+          <li><b>Pronouns:</b> She/her</li>
+          <li><b>Personality Type:</b> INTJ-T</li>
+     </ul>
+     <br>
+
+<h5 id="aboutMes">What I Want to Be in the Future</h5>
+     <ol>
+          <li>Witch</li>
+          <li>Computer engineer</li>
+          <li>Superhero/anti-hero</li>
+          <li>Writer</li>
+          <li>Secret agent</li>
+          <li>YouTuber/gamer</li>
+          <li>Detective</li>
+          <li>Astronaut</li>
+          <li>Astronomer</li>
+     </ol>
+     <br>
+
+<h5 id="aboutMes">Traits</h5>
+     <dl>
+          <b>Abilities/Skills</b>
+          <ul>
+               <li>Writing stories</li>
+               <li>Quick typing</li>
+               <li>Trilingualism (English, Filipino, Spanish)</li>
+               <li>Dream precognition</li>
+          </ul>
+          <b>Hobbies</b>
+          <ul>
+               <li>Reading books</li>
+               <li>Writing stories</li>
+               <li>Playing video games</li>
+               <li>Watching movies and TV shows</li>
+               <li>Listening to music</li>
+          </ul>
+          <b>Likes</b>
+          <ul>
+               <li>Books</li>
+               <li>Writing</li>
+               <li>Video games</li>
+               <li>Fantasy</li>
+               <li>Witches</li>
+               <li>Fashion</li>
+               <li>Magic</li>
+               <li>Music</li>
+               <li>Underrated things</li>
+          </ul>
+          <b>Dislikes</b>
+          <ul>
+               <li>Smoke, cigarettes, vapes</li>
+               <li>Mean people, bullies, bullying</li>
+               <li>Pretty privilege</li>
+               <li>Spoiled people</li>
+               <li>Loud noise</li>
+               <li>Being taken a picture/video of</li>
+               <li>Taking pictures/videos</li>
+               <li>Socializing</li>
+          </ul>
+     </dl>
+     <br>
+
+<h5 id="aboutMes">Favorites</h5>
+     <dl>
+          <b>Favorite Books</b>
+          <ol>
+               <li>The School for Good and Evil</li>
+               <li>Six of Crows</li>
+               <li>The Secret Series</li>
+               <li>Shadows House</li>
+               <li>Kat, Incorrigible</li>
+               <li>Waterfire Saga</li>
+               <li>The Blood of Stars</li>
+               <li>The Accidental Pirates</li>
+               <li>100 Dresses</li>
+               <li>DC Superhero Girls: Superhero High</li>
+               <li>The Prince and the Dressmaker</li>
+               <li>The Very Unfortunate Wish of Melony Yoshimura</li>
+               <li>The Magical Unicorn Society: Official Handbook</li>
+          </ol>
+          <b>Favorite Movies and TV Shows</b>
+          <ul>
+               <li>Cruella</li>
+               <li>Spider-verse</li>
+               <li>Venom</li>
+               <li>Alita: Battle Angle</li>
+               <li>How to Train Your Dragon</li>
+               <li>Wednesday</li>
+               <li>Murder Drones</li>
+               <li>Back to the Basics (by HyuNoo)</li>
+               <li>Senior High</li>
+               <li>High Street</li>
+               <li>Squid Game</li>
+               <li>Alice in Borderland</li>
+               <li>Lego Ninjago</li>
+               <li>Among Us Logic</li>
+               <li>Shadow and Bone</li>
+               <li>Witch Hat Atelier</li>
+               <li>Stranger Things</li>
+               <li>Wolf King</li>
+               <li>Villainous</li>
+          </ul>
+          <b>Favorite Video Games</b>
+          <ul>
+               <li>Roblox (Royale High, Tower Defense Simulator, Hypershot, Notoriety, Minds Fall, Demonology, Word Bomb, Spelling Bee)</li>
+               <li>Vampire Survivors</li>
+               <li>FNF</li>
+               <li>Hyde and Seek</li>
+               <li>Time Princess</li>
+               <li>Mobile Legends</li>
+               <li>Jeep Horror</li>
+          </ul>
+          <b>Favorite Musical Artists</b>
+          <ul>
+               <li>Ellise</li>
+               <li>Get Scared</li>
+               <li>Jennie</li>
+               <li>Joel Sunny</li>
+          </ul>
+     </dl>
+
+</body>
+</html>

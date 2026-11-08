@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- PYSCRIPT CDN -->
+     <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css"/>
+     <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+     <!-- BOOTSTRAP CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <!-- WHIMSICAL GOOGLE FONTS -->
+     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+     <title>Periodic Table Information Finder</title>
+
+     <style>
+          @keyframes float {
+               0%, 100% { transform: translateY(0px); }
+               50% { transform: translateY(-8px); }
+          }
+
+          @keyframes shimmer {
+               0% { background-position: 0% 50%; }
+               50% { background-position: 100% 50%; }
+               100% { background-position: 0% 50%; }
+          }
+
+          @keyframes glow {
+               0%, 100% { box-shadow: 0 0 15px rgba(186, 104, 200, 0.3); }
+               50% { box-shadow: 0 0 30px rgba(186, 104, 200, 0.7); }
+          }
+
+          /* GENERAL PAGE */
+
+          body {
+               background:
+                    radial-gradient(circle at 15% 20%, rgba(126, 60, 160, 0.4), transparent 35%),
+                    radial-gradient(circle at 85% 80%, rgba(75, 45, 130, 0.5), transparent 35%),
+                    linear-gradient(135deg, #10051f, #211039, #0d1029);
+                    
+
+               color: #f3e5f5;
+               font-family: 'Fredoka', sans-serif;
+
+               min-height: 100vh;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+
+               margin: 0;
+               padding: 140px 1.5rem 2rem;
+               box-sizing: border-box;
+               overflow-x: hidden;
+               position: relative;
+          }
+
+          /* SCIENCE AND MAGIC BACKGROUND */
+
+          body::before {
+               position: absolute;
+               top: 5%;
+               font-size: 1.5rem;
+               letter-spacing: 25px;
+               color: #ce93d8;
+               opacity: 0.35;
+               pointer-events: none;
+               animation: float 6s ease-in-out infinite;
+          }
+
+          body::after {
+               position: absolute;
+               bottom: 5%;
+               font-size: 1.5rem;
+               letter-spacing: 20px;
+               color: #b39ddb;
+               opacity: 0.25;
+               pointer-events: none;
+               animation: float 7s ease-in-out infinite;
+          }
+
+          /* TITLE */
+
+          h3 {
+               font-family: 'Cinzel Decorative', cursive;
+
+               font-size: 1.75rem;
+
+               background: linear-gradient(
+                    90deg,
+                    #ce93d8,
+                    #f3e5f5,
+                    #b39ddb,
+                    #9575cd,
+                    #e1bee7
+               );
+
+               background-size: 300% 300%;
+               -webkit-background-clip: text;
+               -webkit-text-fill-color: transparent;
+
+               animation: shimmer 6s ease infinite, float 4s ease-in-out infinite;
+
+               font-weight: 700;
+               text-align: center;
+               margin-bottom: 1.5rem;
+
+               filter: drop-shadow(0 0 12px rgba(206, 147, 216, 0.6));
+               max-width: 100%;
+          }
+
+          /* DESCRIPTION */
+
+          p {
+               color: #d1c4e9;
+               text-align: center;
+               font-size: 1.05rem;
+               margin-bottom: 1.5rem;
+          }
+
+          p b {
+               color: #eaafff;
+          }
+
+          /* FORM CONTAINER */
+
+          form {
+               background: rgba(35, 17, 61, 0.8);
+               border: 2px solid #9575cd;
+               border-radius: 25px !important;
+
+               box-shadow:
+               0 0 20px rgba(149, 117, 205, 0.3),
+               0 0 45px rgba(103, 58, 183, 0.2),
+               inset 0 0 20px rgba(206, 147, 216, 0.08);
+
+               padding: 2.5rem;
+               backdrop-filter: blur(12px);
+
+               width: 100%;
+               max-width: 430px;
+               margin: 0 auto;
+
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               box-sizing: border-box;
+          }
+
+          fieldset {
+               border: none !important;
+               padding: 0 !important;
+               width: 100%;
+               box-sizing: border-box;
+               text-align: center;
+          }
+
+          /* TEXT INPUT */
+
+          input[type="text"] {
+               background: rgba(17, 8, 35, 0.9) !important;
+
+               border: 2px dashed #b39ddb !important;
+               color: #f3e5f5 !important;
+
+               border-radius: 15px !important;
+               padding: 0.85rem 1rem !important;
+
+               margin: 0.5rem 0 1.2rem !important;
+               width: 100% !important;
+
+               text-align: center;
+               font-family: 'Fredoka', sans-serif;
+               font-size: 1.05rem;
+
+               transition: all 0.3s ease;
+          }
+
+          input[type="text"]::placeholder {
+               color: #9575cd;
+               font-style: italic;
+          }
+
+          input[type="text"]:focus {
+               border-style: solid !important;
+               border-color: #e1bee7 !important;
+
+               box-shadow:
+                    0 0 12px rgba(206, 147, 216, 0.6),
+                    0 0 25px rgba(149, 117, 205, 0.4) !important;
+
+               transform: scale(1.03);
+               outline: none;
+          }
+
+          /* BUTTON */
+
+          input[type="button"] {
+               background: linear-gradient(
+                    135deg,
+                    #7e57c2,
+                    #9c27b0,
+                    #673ab7
+               ) !important;
+
+               border: 1px solid #ce93d8 !important;
+               color: #ffffff !important;
+
+               font-family: 'Fredoka', sans-serif;
+               font-size: 1.1rem;
+               font-weight: 600;
+               letter-spacing: 1px;
+
+               border-radius: 20px !important;
+               padding: 0.8rem 2rem !important;
+
+               cursor: pointer;
+               transition: all 0.3s ease;
+
+               box-shadow: 0 5px 18px rgba(156, 39, 176, 0.4);
+
+               width: 100%;
+               margin-top: 0.5rem;
+          }
+
+          input[type="button"]:hover {
+               background: linear-gradient(
+                    135deg,
+                    #ab47bc,
+                    #9575cd,
+                    #7e57c2
+               ) !important;
+
+               box-shadow:
+                    0 0 20px rgba(206, 147, 216, 0.7),
+                    0 0 35px rgba(149, 117, 205, 0.4);
+
+               transform: translateY(-3px);
+          }
+
+          input[type="button"]:active {
+               transform: scale(0.97);
+          }
+
+          #result {
+               background: rgba(35, 17, 61, 0.65);
+               border: 1px solid #9575cd;
+               border-radius: 20px;
+
+               margin: 2rem auto 0;
+               padding: 1.5rem 2rem;
+
+               max-width: 430px;
+               width: 100%;
+               box-sizing: border-box;
+
+               font-size: 1.15rem;
+               font-weight: 600;
+               color: #e1bee7;
+
+               text-shadow: 0 0 10px rgba(206, 147, 216, 0.4);
+               text-align: left;
+               font-family: 'Fredoka', sans-serif;
+
+               white-space: pre-line;
+
+               box-shadow: 0 0 20px rgba(149, 117, 205, 0.2);
+               backdrop-filter: blur(10px);
+
+               animation: none;
+          }
+
+          /* MOBILE RESPONSIVENESS */
+
+          @media (max-width: 480px) {
+               body {
+                    padding: 190px 1rem 2rem;
+               }
+
+               form {
+                    padding: 2rem 1.2rem;
+               }
+
+               #result #res{
+                    font-size: 1rem;
+                    padding: 1.2rem;
+               }
+
+               body::before,
+               body::after {
+                    letter-spacing: 10px;
+                    font-size: 1rem;
+               }
+          }
+
+          .navbar {
+               background: linear-gradient(135deg, #4c345e, #7952b5, #302442);
+               padding: 1rem 2rem;
+               border-radius: 15px;
+               position: fixed;
+               top: 15px;
+               left: 2%;
+               width: 96%;
+               z-index: 1000;
+               box-sizing: border-box;
+          }
+
+          .navbar-brand {
+               font-family: 'Cinzel Decorative', cursive;
+               font-size: 20px;
+               font-weight: 700;
+               color: white !important;
+          }
+
+          .navbar-nav {
+               display: flex;
+               flex-direction: row;
+               gap: 1.5rem;
+          }
+
+          .nav-link {
+               font-family: 'Fredoka', sans-serif;
+               color: #f3e5f5 !important;
+               font-size: 15px;
+               text-decoration: none;
+               transition: 0.3s;
+          }
+
+          .nav-link:hover {
+               color: #d1c4e9 !important;
+               text-decoration: underline;
+          }
+
+          body {
+               padding: 170px 1.5rem 2rem;
+          }
+
+          @media (max-width: 768px) {
+               .navbar .container-fluid {
+                    flex-direction: column;
+                    gap: 10px;
+               }
+
+               .navbar-nav {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 5px 15px;
+               }
+
+               .navbar-brand {
+                    font-size: 17px;
+               }
+
+               .nav-link {
+                    font-size: 13px;
+               }
+          }
+
+     </style>
+
+</head>
+<body>
+
+     <!-- NAVBAR -->
+     <nav class="navbar">
+          <div class="container-fluid">
+               <a class="navbar-brand" href="./index.html">Student Showcase</a>
+
+               <ul class="navbar-nav">
+                    <li class="nav-item">
+                         <a class="nav-link" href="./index.html">Club Members</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                         <a class="nav-link" href="./bcmems.html">Join Club</a>
+                    </li>
+
+                    <li class="nav-item">
+                         <a class="nav-link" href="./element.html">Element Finder</a>
+                    </li>
+
+                    <li class="nav-item">
+                         <a class="nav-link" href="./meetcreator.html">Meet the Creator</a>
+                    </li>
+               </ul>
+
+          </div>
+     </nav>
+
+     <!-- Form -->
+     <div>
+          <h3>Non-Metal Elements</h3>
+          <p>Enter the <b>symbol</b> of a non-metal element (ex. H, O, Cl, Ne, Xe)</p>
+
+          <form>
+               <fieldset>
+                    <legend><b>Element Symbol</b></legend>
+                    <input type="text" id="elSym" placeholder="Enter symbol of non-metal element..."><br>
+                    <input type="button" py-click="submit_details" value="Check Details">
+               </fieldset>
+          </form>
+     </div>
+
+     <!-- Output -->
+     <div id="result"></div>
+
+     <!-- PYSCRIPT -->
+     <py-script src="./main.py"></py-script>
+
+</body>
+</html>
